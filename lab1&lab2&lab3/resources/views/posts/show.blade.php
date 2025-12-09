@@ -3,6 +3,11 @@
 @section('content')
     <div class="card mb-3">
         <div class="card-header">
+            @if ($post->image_path)
+                <div class="mb-3">
+                    <img src="{{ asset('storage/' . $post->image_path) }}" alt="Post image" style="max-width: 300px;">
+                </div>
+            @endif
             <h3 class="mb-0">{{ $post->title }}</h3>
             <small class="text-muted">
                 Created at:

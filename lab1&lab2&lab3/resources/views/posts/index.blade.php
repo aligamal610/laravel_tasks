@@ -3,10 +3,32 @@
 @section('content')
     <h1 class="mb-3">All Posts</h1>
 
+    <form action="{{ route('posts.index') }}" method="GET" class="row mb-3">
+        <div class="col-md-4">
+            <input
+                type="text"
+                name="q"
+                class="form-control"
+                placeholder="Search by title or body..."
+                value="{{ request('q') }}"
+            >
+        </div>
+        <div class="col-md-3">
+            <button type="submit" class="btn btn-primary">
+                Search
+            </button>
+
+            <a href="{{ route('posts.index') }}" class="btn btn-secondary">
+                Clear
+            </a>
+        </div>
+    </form>
+
     <table class="table table-bordered table-striped">
         <thead class="table-dark">
             <tr>
                 <th>ID</th>
+                <th>Image</th>
                 <th>Title</th>
                 <th>Body</th>
                 <th>Created At</th>
@@ -17,6 +39,11 @@
             @foreach ($posts as $post)
                 <tr>
                     <td>{{ $post->id }}</td>
+                    <td>
+                        @if($post->image_path)
+                            <img src="{{ asset('storage/' . $post->image_path) }}" alt="" style="max-width: 80px;">
+                        @endif
+                    </td>
                     <td>{{ $post->title }}</td>
                     <td>{{ Str::limit($post->body, 50) }}</td>
                     <td>

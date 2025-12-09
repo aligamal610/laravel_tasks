@@ -12,7 +12,6 @@
         <div class="container">
             <a class="navbar-brand" href="{{ route('posts.index') }}">Posts</a>
             <div>
-                <!-- <a href="{{ route('posts.index') }}" class="btn btn-outline-light btn-sm me-2">All Posts</a> -->
                 <a href="{{ route('posts.create') }}" class="btn btn-success btn-sm">Create Post</a>
             </div>
         </div>
