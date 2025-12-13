@@ -60,7 +60,7 @@ class PostController extends Controller
         return view('posts.edit', compact('post'));
     }
 
-    public function update(UpdatePostRequest $request, $id)
+    public function update(StorePostRequest $request, $id)
     {
         $post = Post::findOrFail($id);
         $data = $request->validated();

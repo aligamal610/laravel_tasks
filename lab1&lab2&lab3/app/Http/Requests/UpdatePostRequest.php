@@ -23,7 +23,7 @@ class UpdatePostRequest extends FormRequest
     {
         $id = $this->route('id'); 
         return [
-            'title' => 'required|string|min:3'.$id ,
+            'title' => 'required|string|min:1'.$id ,
             'body'  => 'required|string|min:10',
             'image' => 'nullable|file|mimes:jpg,png',
         ];
